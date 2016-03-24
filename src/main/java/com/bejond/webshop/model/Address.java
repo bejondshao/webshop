@@ -14,7 +14,7 @@ public class Address {
 	private long addressId;
 	private long userId;
 	private long regionId;
-	private long provinceId;
+	private int province;
 	private int zip;
 	private String city;
 	private String district;
@@ -53,6 +53,14 @@ public class Address {
 		this.regionId = regionId;
 	}
 
+	public int getProvince() {
+		return province;
+	}
+
+	public void setProvince(int province) {
+		this.province = province;
+	}
+
 	public int getZip() {
 		return zip;
 	}
@@ -61,13 +69,6 @@ public class Address {
 		this.zip = zip;
 	}
 
-	public long getProvinceId() {
-		return provinceId;
-	}
-
-	public void setProvinceId(long provinceId) {
-		this.provinceId = provinceId;
-	}
 
 	public String getCity() {
 		return city;
