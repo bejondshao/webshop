@@ -13,11 +13,10 @@ import java.util.Date;
 public class Address {
 	private long addressId;
 	private long userId;
-	private long regionId;
+	private String zip;
 	private int province;
-	private int zip;
-	private String city;
-	private String district;
+	private int city;
+	private int district;
 	private String street1;
 	private String street2;
 	private String street3;
@@ -45,14 +44,6 @@ public class Address {
 		this.userId = userId;
 	}
 
-	public long getRegionId() {
-		return regionId;
-	}
-
-	public void setRegionId(long regionId) {
-		this.regionId = regionId;
-	}
-
 	public int getProvince() {
 		return province;
 	}
@@ -61,28 +52,27 @@ public class Address {
 		this.province = province;
 	}
 
-	public int getZip() {
+	public String getZip() {
 		return zip;
 	}
 
-	public void setZip(int zip) {
+	public void setZip(String zip) {
 		this.zip = zip;
 	}
 
-
-	public String getCity() {
+	public int getCity() {
 		return city;
 	}
 
-	public void setCity(String city) {
+	public void setCity(int city) {
 		this.city = city;
 	}
 
-	public String getDistrict() {
+	public int getDistrict() {
 		return district;
 	}
 
-	public void setDistrict(String district) {
+	public void setDistrict(int district) {
 		this.district = district;
 	}
 
