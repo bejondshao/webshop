@@ -1,8 +1,11 @@
 package com.bejond.webshop.model;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import java.util.Date;
 
 /**
@@ -12,7 +15,7 @@ import java.util.Date;
 @Entity (name = "ShoppingCart_")
 public class ShoppingCart {
 	private long cartId;
-	private long userId;
+	private User user;
 	private Date createDate;
 	private Date modifiedDate;
 
@@ -26,12 +29,14 @@ public class ShoppingCart {
 		this.cartId = cartId;
 	}
 
-	public long getUserId() {
-		return userId;
+	@ManyToOne (fetch = FetchType.LAZY)
+	@JoinColumn (name = "userId")
+	public User getUser() {
+		return user;
 	}
 
-	public void setUserId(long userId) {
-		this.userId = userId;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public Date getCreateDate() {

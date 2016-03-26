@@ -1,8 +1,12 @@
 package com.bejond.webshop.model;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import java.util.Date;
 
 /**
@@ -13,7 +17,7 @@ import java.util.Date;
 public class Coupon {
 	private long couponId;
 	private long userId;
-	private long couponRuleId;
+	private CouponRule couponRule;
 	private String code;
 	private int type;
 	private boolean returnable;
@@ -41,12 +45,14 @@ public class Coupon {
 		this.userId = userId;
 	}
 
-	public long getCouponRuleId() {
-		return couponRuleId;
+	@OneToOne
+	@JoinColumn (name = "couponRuleId")
+	public CouponRule getCouponRule() {
+		return couponRule;
 	}
 
-	public void setCouponRuleId(long couponRuleId) {
-		this.couponRuleId = couponRuleId;
+	public void setCouponRule(CouponRule couponRule) {
+		this.couponRule = couponRule;
 	}
 
 	public String getCode() {

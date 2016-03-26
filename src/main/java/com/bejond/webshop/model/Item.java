@@ -1,8 +1,11 @@
 package com.bejond.webshop.model;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import java.util.Date;
 
 /**
@@ -13,10 +16,9 @@ import java.util.Date;
 public class Item {
 	private long itemId;
 	private long itemUniqueId;
-	private long parameterId;
 	private long userId;
-	private long categoryId;
-	private long brandId;
+	private Category category;
+	private Brand brand;
 	private String name;
 	private String title;
 	private String description;
@@ -48,14 +50,6 @@ public class Item {
 		this.itemUniqueId = itemUniqueId;
 	}
 
-	public long getParameterId() {
-		return parameterId;
-	}
-
-	public void setParameterId(long parameterId) {
-		this.parameterId = parameterId;
-	}
-
 	public long getUserId() {
 		return userId;
 	}
@@ -64,20 +58,24 @@ public class Item {
 		this.userId = userId;
 	}
 
-	public long getCategoryId() {
-		return categoryId;
+	@ManyToOne (fetch = FetchType.LAZY)
+	@JoinColumn (name = "categoryId")
+	public Category getCategory() {
+		return category;
 	}
 
-	public void setCategoryId(long categoryId) {
-		this.categoryId = categoryId;
+	public void setCategory(Category category) {
+		this.category = category;
 	}
 
-	public long getBrandId() {
-		return brandId;
+	@ManyToOne (fetch = FetchType.LAZY)
+	@JoinColumn (name = "brandId")
+	public Brand getBrand() {
+		return brand;
 	}
 
-	public void setBrandId(long brandId) {
-		this.brandId = brandId;
+	public void setBrand(Brand brand) {
+		this.brand = brand;
 	}
 
 	public String getName() {

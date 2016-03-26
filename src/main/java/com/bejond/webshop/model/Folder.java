@@ -1,8 +1,11 @@
 package com.bejond.webshop.model;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import java.util.Date;
 
 /**
@@ -12,8 +15,7 @@ import java.util.Date;
 @Entity (name = "Folder_")
 public class Folder {
 	private long folderId;
-	private long repositoryId;
-	private long groupId;
+	private Group group;
 	private long parentFolderId;
 	private long userId;
 	private String treePath;
@@ -37,20 +39,14 @@ public class Folder {
 		this.folderId = folderId;
 	}
 
-	public long getRepositoryId() {
-		return repositoryId;
+	@ManyToOne (fetch = FetchType.LAZY)
+	@JoinColumn (name = "groupId")
+	public Group getGroup() {
+		return group;
 	}
 
-	public void setRepositoryId(long repositoryId) {
-		this.repositoryId = repositoryId;
-	}
-
-	public long getGroupId() {
-		return groupId;
-	}
-
-	public void setGroupId(long groupId) {
-		this.groupId = groupId;
+	public void setGroup(Group group) {
+		this.group = group;
 	}
 
 	public long getParentFolderId() {

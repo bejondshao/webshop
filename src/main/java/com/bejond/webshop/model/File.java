@@ -1,8 +1,11 @@
 package com.bejond.webshop.model;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.xml.bind.annotation.XmlIDREF;
 import java.util.Date;
 
@@ -14,9 +17,8 @@ import java.util.Date;
 public class File {
 	private long fileId;
 	private long userId;
-	private long groupId;
-	private long repositoryId;
-	private long folderId;
+	private Group group;
+	private Folder folder;
 	private long smallImageId;
 	private long largeImageId;
 	private String treePath;
@@ -52,28 +54,24 @@ public class File {
 		this.userId = userId;
 	}
 
-	public long getGroupId() {
-		return groupId;
+	@ManyToOne (fetch = FetchType.LAZY)
+	@JoinColumn (name = "groupId")
+	public Group getGroup() {
+		return group;
 	}
 
-	public void setGroupId(long groupId) {
-		this.groupId = groupId;
+	public void setGroup(Group group) {
+		this.group = group;
 	}
 
-	public long getRepositoryId() {
-		return repositoryId;
+	@ManyToOne (fetch = FetchType.LAZY)
+	@JoinColumn (name = "folderId")
+	public Folder getFolder() {
+		return folder;
 	}
 
-	public void setRepositoryId(long repositoryId) {
-		this.repositoryId = repositoryId;
-	}
-
-	public long getFolderId() {
-		return folderId;
-	}
-
-	public void setFolderId(long folderId) {
-		this.folderId = folderId;
+	public void setFolder(Folder folder) {
+		this.folder = folder;
 	}
 
 	public long getSmallImageId() {

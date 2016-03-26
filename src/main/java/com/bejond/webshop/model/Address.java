@@ -1,8 +1,12 @@
 package com.bejond.webshop.model;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import java.util.Date;
 
 /**
@@ -12,7 +16,7 @@ import java.util.Date;
 @Entity (name = "Address_")
 public class Address {
 	private long addressId;
-	private long userId;
+	private User user;
 	private String zip;
 	private int province;
 	private int city;
@@ -36,20 +40,14 @@ public class Address {
 		this.addressId = addressId;
 	}
 
-	public long getUserId() {
-		return userId;
+	@ManyToOne (fetch = FetchType.LAZY)
+	@JoinColumn (name = "userId")
+	public User getUser() {
+		return user;
 	}
 
-	public void setUserId(long userId) {
-		this.userId = userId;
-	}
-
-	public int getProvince() {
-		return province;
-	}
-
-	public void setProvince(int province) {
-		this.province = province;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public String getZip() {
@@ -58,6 +56,14 @@ public class Address {
 
 	public void setZip(String zip) {
 		this.zip = zip;
+	}
+
+	public int getProvince() {
+		return province;
+	}
+
+	public void setProvince(int province) {
+		this.province = province;
 	}
 
 	public int getCity() {

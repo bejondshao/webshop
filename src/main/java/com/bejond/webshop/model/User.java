@@ -1,8 +1,11 @@
 package com.bejond.webshop.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import java.util.Date;
 
 /**
@@ -12,9 +15,9 @@ import java.util.Date;
 @Entity (name = "User_")
 public class User {
 	private long userId;
-	private long contactId;
+	private Contact contact;
 	private long ldapServerId;
-	private long securityId;
+	private Security security;
 	private String name;
 	private boolean defaultUser;
 	private String password;
@@ -54,12 +57,14 @@ public class User {
 		this.userId = userId;
 	}
 
-	public long getContactId() {
-		return contactId;
+	@OneToOne
+	@JoinColumn (name = "contactId")
+	public Contact getContact() {
+		return contact;
 	}
 
-	public void setContactId(long contactId) {
-		this.contactId = contactId;
+	public void setContact(Contact contact) {
+		this.contact = contact;
 	}
 
 	public long getLdapServerId() {
@@ -70,12 +75,14 @@ public class User {
 		this.ldapServerId = ldapServerId;
 	}
 
-	public long getSecurityId() {
-		return securityId;
+	@OneToOne
+	@JoinColumn (name = "securityId")
+	public Security getSecurity() {
+		return security;
 	}
 
-	public void setSecurityId(long securityId) {
-		this.securityId = securityId;
+	public void setSecurity(Security security) {
+		this.security = security;
 	}
 
 	public String getName() {

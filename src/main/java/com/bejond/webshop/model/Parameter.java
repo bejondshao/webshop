@@ -1,8 +1,11 @@
 package com.bejond.webshop.model;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import java.util.Date;
 
 /**
@@ -12,7 +15,7 @@ import java.util.Date;
 @Entity (name = "Parameter_")
 public class Parameter {
 	private long parameterId;
-	private long itemId;
+	private Item item;
 	private long userId;
 	private String name;
 	private String value;
@@ -29,12 +32,14 @@ public class Parameter {
 		this.parameterId = parameterId;
 	}
 
-	public long getItemId() {
-		return itemId;
+	@ManyToOne (fetch = FetchType.LAZY)
+	@JoinColumn (name = "itemId")
+	public Item getItem() {
+		return item;
 	}
 
-	public void setItemId(long itemId) {
-		this.itemId = itemId;
+	public void setItem(Item item) {
+		this.item = item;
 	}
 
 	public long getUserId() {
