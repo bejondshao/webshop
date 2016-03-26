@@ -1,5 +1,7 @@
 package com.bejond.webshop.model;
 
+import org.springframework.stereotype.Component;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -9,6 +11,7 @@ import java.util.Date;
  * Created by bejond on 3/13/16.
  */
 
+@Component
 @Entity (name = "Brand_")
 public class Brand {
 	private long brandId;

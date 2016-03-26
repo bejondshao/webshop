@@ -1,5 +1,7 @@
 package com.bejond.webshop.model;
 
+import org.springframework.stereotype.Component;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -13,6 +15,7 @@ import java.util.Date;
  * Created by bejond on 3/12/16.
  */
 
+@Component
 @Entity (name = "Address_")
 public class Address {
 	private long addressId;

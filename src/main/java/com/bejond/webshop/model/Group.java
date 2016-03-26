@@ -1,5 +1,7 @@
 package com.bejond.webshop.model;
 
+import org.springframework.stereotype.Component;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -11,6 +13,7 @@ import javax.persistence.ManyToOne;
  * Created by bejond on 3/16/16.
  */
 
+@Component
 @Entity (name = "Group_")
 public class Group {
 	private long groupId;

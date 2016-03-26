@@ -1,5 +1,7 @@
 package com.bejond.webshop.model;
 
+import org.springframework.stereotype.Component;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,6 +14,7 @@ import java.util.Date;
  * Created by bejond on 3/6/16.
  */
 
+@Component
 @Entity (name = "User_")
 public class User {
 	private long userId;
