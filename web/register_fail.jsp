@@ -9,11 +9,9 @@
 <%@include file="init_user.jsp" %>
 <html>
   <head>
-    <title>用户注册</title>
+    <title>Fail</title>
   </head>
   <body>
-      <%--<a href="regist_user.jsp">用户注册</a> <br>--%>
-      <s:action name="viewUser!viewUsers" executeResult="true" />
-      <s:debug />
+    User Registration Failed.
   </body>
 </html>
